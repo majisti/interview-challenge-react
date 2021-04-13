@@ -1,0 +1,14 @@
+.button {
+  padding: 10px 12px;
+  border: 0;
+  background-color: brown;
+  color: rgba(255, 255, 255, 0.8);
+  border-radius: 4px;
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+
+  &:hover {
+    background-color: darken(brown, 5%);
+  }
+}

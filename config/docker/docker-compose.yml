@@ -1,0 +1,17 @@
+version: "3.7"
+
+services:
+    node: &node
+        build: node
+        init: true
+        working_dir: /app
+        volumes:
+            - ../../:/app
+
+    app:
+        <<: *node
+        command: yarn start
+        expose:
+            - 3000
+        ports:
+            - "$CREATE_REACT_PORT:3000"

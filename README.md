@@ -1,70 +1,112 @@
-# Getting Started with Create React App
+# Majisti's Interview Challenge
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This challenge will require you to fix a few unit tests. The project is 
+completely ready for you to start fixing the issues, without having to fumble
+with project setup. In other words, none of the issues are from the
+project's configuration; they are all code-related.
 
-## Available Scripts
+Once you fix the automated tests, you're all done!
 
-In the project directory, you can run:
+## The App
+Guyllaume (who built this project) is a huge D&D nerd. As such, the app is a 
+small application that lists, via an API, available spells in the game.
 
-### `yarn start`
+It is built with react and redux, via the [create-react-app][1] project. It
+uses a [free to use API][2] to fetch information about the spells.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+**➡️ Don't worry, you don't need to know anything about Dungeons & Dragons!**
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Installation
+You have many options, the easiest being via Docker. Otherwise, using your
+global installation of node will also work (though we use [yarn][5] as the
+package manager, npm will *not* have a `package-lock.json` file).
 
-### `yarn test`
+In both cases, the project will be available at [http://localhost:3000][4].
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### With Docker
 
-### `yarn build`
+We use [make][3] to simplify interactions with the project. You can run
+`make help` to see all available commands. That being said, **to install the
+project**, run:
+```shell
+make && make start
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### With node and yarn
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+You'll know how it works, but in case:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```shell
+yarn && yarn start
+```
 
-### `yarn eject`
+## Running Tests
+In your IDE, you should be all set to run them. You can also run the whole
+suite via command line:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+```shell
+# docker - you have two options:
+make test
+bin/yarn test
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+# node/yarn
+yarn test
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+If you prefer running your tests in watch mode:
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+```shell
+# docker
+make test-watch
+bin/yarn test:watch
 
-## Learn More
+# node/yarn
+yarn test:watch
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Hints And Pointers
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+We don't want to just drop you in there and lose all your time on useless
+stuff 😛.
 
-### Code Splitting
+### Where To Look For Issues
+- All the issues are 100% code-related, don't look into the Docker setup or
+some weird node module. They're all within our code.
+- Once the automated tests are all green, you're all done.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Where **NOT** To Look For Issues
+- There are no CSS issues.
+- We did not introduce silly typo (like switching a `,` to a `.`).
+- You don't have to **add** features. They are all present, just broken or
+  bugged.
+- The external API itself is not an issue, and you don't need to know
+  **anything** about it to fix any of the bugs. Don't go reading its
+  documentation for nothing 😛.
 
-### Analyzing the Bundle Size
+### Visible Bugs
+Two bugs have a visible effect. 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+#### Bug #1 - Filter Reset Button
 
-### Making a Progressive Web App
+In the left sidebar, there is a **reset** button that will appear once
+you select two filters (one for spell level, one for spell school). The
+wanted behavior is that **the button should appear as soon as you have one
+filter selected**.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+![img.png](public/img/reset-filter-button.png)
 
-### Advanced Configuration
+#### Bug #2 - Spell Level Display
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+When displaying spell information, we display the spell level under the 
+spell name. This is currently broken, you can see in the following images
+what the expected behaviour is.
 
-### Deployment
+| Current | Expected |
+|---|---|
+| ![img.png](public/img/bugged-level-display.png) | ![img.png](public/img/expected-level-display.png) |
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+[1]: https://create-react-app.dev/
+[2]: http://www.dnd5eapi.co/
+[3]: https://www.gnu.org/software/make/
+[4]: http://localhost:3000
+[5]: https://yarnpkg.com/
