@@ -16,7 +16,7 @@ export const SelectedSpell: FC = () => {
     }
 
     execute()
-  })
+  }, [selectedSpell])
 
   if (!spellDescription) {
     return <p>Select a spell on the left to display its description.</p>
