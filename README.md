@@ -20,9 +20,9 @@ information about the spells.
 
 ## Installation
 
-You have many options, the easiest being via Docker. Otherwise, using your global installation of node will also work (
-though we use [yarn][5] as the package manager, you can use npm, but there is no `package-lock.json` file so results
-might be unpredictable.
+You have many options, the easiest being via Docker. Otherwise, using your global installation of node will also work.
+We use [yarn][5] as the package manager. You can use npm, but there is no `package-lock.json` file so results might be
+unpredictable.
 
 In both cases, the project will be available at [http://localhost:3000][4].
 
