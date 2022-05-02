@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from '../../hooks'
 import { selectResource } from '../../modules/routing'
 import { List, ListItem } from '../../components'
 import { levelFilterSelector, schoolFilterSelector } from '../../modules/filters'
+import { Box, Heading, Text } from '@chakra-ui/react'
 
 export const SpellList: FC = () => {
   const dispatch = useDispatch()
@@ -23,8 +24,8 @@ export const SpellList: FC = () => {
   }, [levelFilter, schoolFilter])
 
   return (
-    <div>
-      <h3>Spells</h3>
+    <Box paddingTop={6}>
+      <Heading as='h3' size='lg' marginBottom={3}>Spells</Heading>
       {spellList ? (
         spellList && (
           <List>
@@ -34,8 +35,8 @@ export const SpellList: FC = () => {
           </List>
         )
       ) : (
-        <p>loading</p>
+        <Text>loading</Text>
       )}
-    </div>
+    </Box>
   )
 }

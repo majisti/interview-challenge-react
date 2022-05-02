@@ -1,5 +1,5 @@
 import React, { ChangeEvent, FC, useMemo } from 'react'
-import styles from './dropdown.module.scss'
+import { Select } from '@chakra-ui/react'
 
 export interface DropdownProps {
   placeholder: string
@@ -19,14 +19,14 @@ export const Dropdown: FC<DropdownProps> = ({ onChange, options, placeholder, se
   const lowercasePlaceholder = useMemo(() => placeholder.toLowerCase(), [placeholder])
 
   return (
-    <select
-      className={styles.dropdown}
+    <Select
+      data-testid={placeholder}
       onChange={onChangeHandler}
       value={selected || lowercasePlaceholder}
-      aria-label={placeholder}
+      placeholder={placeholder}
+      background='white'
     >
-      <option value={lowercasePlaceholder} disabled>{placeholder}</option>
       {options.map(({ value, label }) => <option key={`option-${value}`} value={value}>{label}</option>)}
-    </select>
+    </Select>
   )
 }

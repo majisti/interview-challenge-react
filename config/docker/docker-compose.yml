@@ -10,8 +10,18 @@ services:
 
     app:
         <<: *node
-        command: yarn start
+        command: yarn start:app
         expose:
             - 3000
         ports:
-            - "$CREATE_REACT_PORT:3000"
+            - "${EXPOSED_APP_PORT}:3000"
+
+    server:
+        <<: *node
+        command: yarn start:dev
+        volumes:
+            - ../../api:/app
+        expose:
+            - 3001
+        ports:
+            - "${EXPOSED_SERVER_PORT}:3001"

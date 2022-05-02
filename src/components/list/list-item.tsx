@@ -1,12 +1,12 @@
 import { FC } from 'react'
-import styles from './list-item.module.scss'
+import {ListItem as ChakraListItem} from '@chakra-ui/react'
 
 export interface ListItemProps {
   onClick?: () => void
 }
 
 export const ListItem: FC<ListItemProps> = ({ children, onClick }) => (
-  <li className={styles.listItem} onClick={onClick}>
+  <ChakraListItem onClick={onClick} cursor='pointer'>
     {children}
-  </li>
+  </ChakraListItem>
 )

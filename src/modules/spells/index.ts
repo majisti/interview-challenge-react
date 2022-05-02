@@ -4,6 +4,7 @@ import { getSpell } from './get-spell-by-id'
 export * from './interfaces'
 export * from './constants'
 export * from './pretty-print-spell-level'
+export * from './slice'
 
 export const spells = {
   list: getSpellList,

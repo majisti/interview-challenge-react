@@ -14,8 +14,8 @@ describe(`<SpellFilter />`, () => {
     store = initStore()
   })
 
-  const levelDropdown = () => screen.getByRole('combobox', { name: /level/i })
-  const schoolDropdown = () => screen.getByRole('combobox', { name: /school/i })
+  const levelDropdown = () => screen.getByTestId(/level/i)
+  const schoolDropdown = () => screen.getByTestId(/school/i)
   const resetButton = () => screen.queryByRole('button', { name: /reset/i })
 
   it(`renders with dropdown placeholders and no reset button`, () => {

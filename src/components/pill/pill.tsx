@@ -1,21 +1,14 @@
-import React, { FC, useMemo } from 'react'
-import classnames from 'classnames'
-import styles from './pill.module.scss'
+import React, { FC } from 'react'
+import {Tag} from '@chakra-ui/react'
 
 export interface PillProps {
   color?: 'yellow' | 'purple'
 }
 
 export const Pill: FC<PillProps> = ({ children, color = 'yellow' }) => {
-  const classes = useMemo(() => classnames({
-    [styles.pill]: true,
-    [styles.yellow]: color === 'yellow',
-    [styles.purple]: color === 'purple',
-  }), [color])
-
   return (
-    <span className={classes}>
+    <Tag colorScheme={color} borderRadius='full'>
       {children}
-    </span>
+    </Tag>
   )
 }

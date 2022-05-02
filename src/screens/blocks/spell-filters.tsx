@@ -11,6 +11,7 @@ import {
   setLevelFilter,
   setSchoolFilter,
 } from '../../modules/filters'
+import { Box, Heading } from '@chakra-ui/react'
 
 export const SpellFilters: FC = () => {
   const dispatch = useDispatch()
@@ -24,10 +25,10 @@ export const SpellFilters: FC = () => {
 
   return (
     <>
-      <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
-        <h3>Filters</h3>
+      <Box display='flex' flexDirection='row' alignItems='center' justifyContent='space-between' marginBottom={3}>
+        <Heading as='h3' size='lg'>Filters</Heading>
         {hasActiveFilters && <Button onClick={onResetClick}>Reset</Button>}
-      </div>
+      </Box>
       <Dropdown
         options={SpellLevels.map((level) => ({ value: level.toString(), label: level.toString() }))}
         placeholder='Level'

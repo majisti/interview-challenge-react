@@ -2,6 +2,7 @@ import { FC } from 'react'
 import { Provider as ReduxProvider } from 'react-redux'
 import * as routing from './routing'
 import * as filters from './filters'
+import * as spells from './spells'
 import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit'
 import { createLogger } from 'redux-logger'
 
@@ -20,6 +21,7 @@ export const initStore = () => {
     reducer: {
       [routing.name]: routing.reducer,
       [filters.name]: filters.reducer,
+      [spells.name]: spells.reducer,
     },
     middleware,
     devTools: true,

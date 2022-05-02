@@ -11,7 +11,7 @@ describe(`<Dropdown />`, () => {
   }
   const renderDropdown = (props: Partial<DropdownProps> = {}) => render(<Dropdown {...{ ...defaultProps, ...props }} />)
 
-  const dropdown = () => screen.getByRole('combobox', { name: defaultProps.placeholder })
+  const dropdown = () => screen.getByTestId(/choose/i)
 
   it(`renders with all the listed options`, () => {
     renderDropdown()
